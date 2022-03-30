@@ -1,15 +1,11 @@
 const express = require('express');
-const {
-  getUpdateProduct,
-  updateProduct,
-} = require('../controllers/admin.controller');
 
 const adminController = require('../controllers/admin.controller');
 const imageUploadMiddleware = require('../middleware/image-upload');
 
 const router = express.Router();
 
-router.get('/products', adminController.getProducts);
+router.get('/products', adminController.getProducts); // /admin/products
 
 router.get('/products/new', adminController.getNewProduct);
 
@@ -28,5 +24,9 @@ router.post(
 );
 
 router.delete('/products/:id', adminController.deleteProduct);
+
+router.get('/orders', adminController.getOrders);
+
+router.patch('/orders/:id', adminController.updateOrder);
 
 module.exports = router;
